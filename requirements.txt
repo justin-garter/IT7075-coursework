@@ -1,0 +1,9 @@
+# IT7075 Module 2 — environment validation and model access
+python-dotenv>=1.0
+openai>=1.3.0
+anthropic>=0.109
+jupyter>=1.0
+psutil>=5.9
+
+# torch is installed separately — the PyPI default may be a CPU-only wheel,
+# and §3.8 requires an accurate CUDA availability report. See README.
