@@ -4,6 +4,9 @@ openai>=1.3.0
 anthropic>=0.109
 jupyter>=1.0
 psutil>=5.9
+numpy>=1.26
 
-# torch is installed separately — the PyPI default may be a CPU-only wheel,
-# and §3.8 requires an accurate CUDA availability report. See README.
+# torch is installed separately, NOT from this file: the default PyPI wheel may be
+# CPU-only, and an RTX 5070 (Blackwell, sm_120) needs a CUDA 12.8+ build. Install with:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu128
+# Verify with module02/env_check.py — torch.cuda.is_available() must report True.
