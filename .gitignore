@@ -1,0 +1,30 @@
+# --- secrets: never commit ---
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# --- virtual environments ---
+.venv/
+venv/
+env/
+
+# --- python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# --- jupyter ---
+.ipynb_checkpoints/
+
+# --- local vector stores / caches produced when notebooks run ---
+chroma/
+.chroma/
+*.sqlite3
+.cache/
+
+# --- os / editor noise ---
+Thumbs.db
+desktop.ini
+.DS_Store
