@@ -164,13 +164,13 @@ Second setting varied is `num_predict` (maximum output tokens).
 
 | | Local workstation | Google Colab (free T4) | Jetstream2 |
 |---|---|---|---|
-| Processor | | | |
-| Logical cores | | | |
-| System RAM | | | |
-| GPU | | | |
-| VRAM | | | |
-| Driver / CUDA | | | |
-| How I checked | | | |
+| Processor | | | AMD EPYC-Milan |
+| Logical cores | | | 16 |
+| System RAM | | | 58 GiB |
+| GPU | | | NVIDIA GRID A100X-20C (vGPU slice of A100 SXM4 40GB) |
+| VRAM | | | 20 GiB (20480 MiB) |
+| Driver / CUDA | | | 580.159.03 / 13.0 |
+| How I checked | | | `nvidia-smi`, `lscpu`, `free -h`, `lspci -nnk` |
 
 ---
 
@@ -189,6 +189,7 @@ One row per model per environment. The same five prompts in every row.
 | mistral:7b | 7B | Q4_K_M | Colab | Ollama | | | | | | | | | | |
 | qwen2.5:3b | 3B | Q4_K_M | Jetstream2 | Ollama | | | | | | | | | | |
 | mistral:7b | 7B | Q4_K_M | Jetstream2 | Ollama | | | | | | | | | | |
+| phi4:14b | 14B | Q4_K_M | Jetstream2 | Ollama | | | | | | | | | | |
 
 ---
 
