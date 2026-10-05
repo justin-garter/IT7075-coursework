@@ -5,8 +5,7 @@ Justin Garter, IT7075C. Drafted 2026-09-22, before any installation.
 The five prompts and the measurement tables below were fixed before any tool was
 installed or any model was run. Deviations are logged in section 8.
 
-Two environments are in scope: the local workstation and Google Colab. Jetstream2
-was not available to the class as of 2026-09-21 and is excluded.
+Three environments are in scope: the local workstation, Google Colab, and Jetstream2.
 
 ---
 
@@ -163,15 +162,15 @@ Second setting varied is `num_predict` (maximum output tokens).
 
 ## 4. Environment and hardware
 
-| | Local workstation | Google Colab (free T4) |
-|---|---|---|
-| Processor | | |
-| Logical cores | | |
-| System RAM | | |
-| GPU | | |
-| VRAM | | |
-| Driver / CUDA | | |
-| How I checked | | |
+| | Local workstation | Google Colab (free T4) | Jetstream2 |
+|---|---|---|---|
+| Processor | | | |
+| Logical cores | | | |
+| System RAM | | | |
+| GPU | | | |
+| VRAM | | | |
+| Driver / CUDA | | | |
+| How I checked | | | |
 
 ---
 
@@ -188,6 +187,8 @@ One row per model per environment. The same five prompts in every row.
 | (HF model) | | 4-bit | Colab | transformers | | | | | | | | | | |
 | qwen2.5:3b | 3B | Q4_K_M | Colab | Ollama | | | | | | | | | | |
 | mistral:7b | 7B | Q4_K_M | Colab | Ollama | | | | | | | | | | |
+| qwen2.5:3b | 3B | Q4_K_M | Jetstream2 | Ollama | | | | | | | | | | |
+| mistral:7b | 7B | Q4_K_M | Jetstream2 | Ollama | | | | | | | | | | |
 
 ---
 
