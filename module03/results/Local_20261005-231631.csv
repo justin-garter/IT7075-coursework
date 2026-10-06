@@ -1,0 +1,4 @@
+Model,Environment,Tool,Load (s),P1 (s),P2 (s),P3 (s),P4 (s),P5 (s),tok/s,VRAM (GB),nvidia-smi used (MiB),CPU offload?,Context,Rule checks,Temperature,num_predict,Notes
+qwen2.5:3b,Local,Ollama,1.80,4.02,0.74,0.39,0.57,0.14,226.8,2.2,3495,no,4096,3/4,default,default,
+mistral:7b,Local,Ollama,2.26,2.23,1.43,0.98,1.16,0.47,125.7,5.0,6157,no,4096,3/4,default,default,
+phi4:14b,Local,Ollama,4.29,7.76,2.02,1.51,2.25,2.84,65.4,9.7,10717,no,4096,0/4,default,default,

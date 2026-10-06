@@ -180,9 +180,9 @@ One row per model per environment. The same five prompts in every row.
 
 | Model | Params | Quant | Environment | Tool | Load (s) | P1 (s) | P2 (s) | P3 (s) | P4 (s) | P5 (s) | tok/s | VRAM (GB) | CPU offload? | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| qwen2.5:3b | 3B | Q4_K_M | Local | Ollama | | | | | | | | | | |
-| mistral:7b | 7B | Q4_K_M | Local | Ollama | | | | | | | | | | |
-| phi4:14b | 14B | Q4_K_M | Local | Ollama | | | | | | | | | | |
+| qwen2.5:3b | 3B | Q4_K_M | Local | Ollama | 1.80 | 4.02 | 0.74 | 0.39 | 0.57 | 0.14 | 226.8 | 2.2 | no | rule checks 3/4 |
+| mistral:7b | 7B | Q4_K_M | Local | Ollama | 2.26 | 2.23 | 1.43 | 0.98 | 1.16 | 0.47 | 125.7 | 5.0 | no | rule checks 3/4 |
+| phi4:14b | 14B | Q4_K_M | Local | Ollama | 4.29 | 7.76 | 2.02 | 1.51 | 2.25 | 2.84 | 65.4 | 9.7 | no | rule checks 0/4 |
 | qwen2.5:3b | 3B | Q4_K_M | Local | Open WebUI | | | | | | | | | | |
 | (HF model) | | 4-bit | Colab | transformers | | | | | | | | | | |
 | qwen2.5:3b | 3B | Q4_K_M | Colab | Ollama | | | | | | | | | | |
@@ -236,4 +236,4 @@ Scored 1 to 5 on two dimensions, by me, for every response including P1.
 
 | Date | What changed | Why |
 |---|---|---|
-| | | |
+| 2026-10-05 | Runner unloads every resident model before each model's run. Official local data is `results/Local_20261005-231631`. | The first run (`Local_20261005-231359`) left earlier models loaded, which affected load times. |
