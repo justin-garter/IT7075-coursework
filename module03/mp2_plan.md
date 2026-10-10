@@ -164,13 +164,13 @@ Second setting varied is `num_predict` (maximum output tokens).
 
 | | Local workstation | Google Colab (free T4) | Jetstream2 |
 |---|---|---|---|
-| Processor | | | AMD EPYC-Milan |
-| Logical cores | | | 16 |
-| System RAM | | | 58 GiB |
-| GPU | | | NVIDIA GRID A100X-20C (vGPU slice of A100 SXM4 40GB) |
-| VRAM | | | 20 GiB (20480 MiB) |
-| Driver / CUDA | | | 580.159.03 / 13.0 |
-| How I checked | | | `nvidia-smi`, `lscpu`, `free -h`, `lspci -nnk` |
+| Processor | AMD Ryzen 7 7800X3D | | AMD EPYC-Milan |
+| Logical cores | 16 | | 16 |
+| System RAM | 31.1 GiB | | 58 GiB |
+| GPU | NVIDIA GeForce RTX 5070 | | NVIDIA GRID A100X-20C (vGPU slice of A100 SXM4 40GB) |
+| VRAM | 12 GiB (12227 MiB) | | 20 GiB (20480 MiB) |
+| Driver / CUDA | 616.92 / 13.4 | | 580.159.03 / 13.0 |
+| How I checked | `nvidia-smi`, `Get-CimInstance` | | `nvidia-smi`, `lscpu`, `free -h`, `lspci -nnk` |
 
 ---
 
@@ -183,7 +183,7 @@ One row per model per environment. The same five prompts in every row.
 | qwen2.5:3b | 3B | Q4_K_M | Local | Ollama | 1.80 | 4.02 | 0.74 | 0.39 | 0.57 | 0.14 | 226.8 | 2.2 | no | rule checks 3/4 |
 | mistral:7b | 7B | Q4_K_M | Local | Ollama | 2.26 | 2.23 | 1.43 | 0.98 | 1.16 | 0.47 | 125.7 | 5.0 | no | rule checks 3/4 |
 | phi4:14b | 14B | Q4_K_M | Local | Ollama | 4.29 | 7.76 | 2.02 | 1.51 | 2.25 | 2.84 | 65.4 | 9.7 | no | rule checks 0/4 |
-| qwen2.5:3b | 3B | Q4_K_M | Local | Open WebUI | | | | | | | | | | |
+| qwen2.5:3b | 3B | Q4_K_M | Local | Open WebUI | 1.61 | 3.03 | 0.63 | 0.42 | 0.51 | 0.30 | 217.1 | 2.2 | no | rule checks 3/4 |
 | (HF model) | | 4-bit | Colab | transformers | | | | | | | | | | |
 | qwen2.5:3b | 3B | Q4_K_M | Colab | Ollama | | | | | | | | | | |
 | mistral:7b | 7B | Q4_K_M | Colab | Ollama | | | | | | | | | | |
@@ -237,3 +237,4 @@ Scored 1 to 5 on two dimensions, by me, for every response including P1.
 | Date | What changed | Why |
 |---|---|---|
 | 2026-10-05 | Runner unloads every resident model before each model's run. Official local data is `results/Local_20261005-231631`. | The first run (`Local_20261005-231359`) left earlier models loaded, which affected load times. |
+| 2026-10-10 | Open WebUI run uses `qwen2.5:3b` with all model capabilities and built-in tools disabled. Input tokens verified equal to the API run (P1: 251). Data in `results/Local-OpenWebUI_20261010_responses.jsonl`. | With defaults, Open WebUI sent 2,050 input tokens for P1 (tool definitions added to the prompt) and displayed an empty reply. |
