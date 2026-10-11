@@ -164,13 +164,13 @@ Second setting varied is `num_predict` (maximum output tokens).
 
 | | Local workstation | Google Colab (free T4) | Jetstream2 |
 |---|---|---|---|
-| Processor | AMD Ryzen 7 7800X3D | | AMD EPYC-Milan |
-| Logical cores | 16 | | 16 |
-| System RAM | 31.1 GiB | | 58 GiB |
-| GPU | NVIDIA GeForce RTX 5070 | | NVIDIA GRID A100X-20C (vGPU slice of A100 SXM4 40GB) |
-| VRAM | 12 GiB (12227 MiB) | | 20 GiB (20480 MiB) |
-| Driver / CUDA | 616.92 / 13.4 | | 580.159.03 / 13.0 |
-| How I checked | `nvidia-smi`, `Get-CimInstance` | | `nvidia-smi`, `lscpu`, `free -h`, `lspci -nnk` |
+| Processor | AMD Ryzen 7 7800X3D | Intel Xeon @ 2.00GHz | AMD EPYC-Milan |
+| Logical cores | 16 | 2 | 16 |
+| System RAM | 31.1 GiB | 12 GiB | 58 GiB |
+| GPU | NVIDIA GeForce RTX 5070 | NVIDIA Tesla T4 | NVIDIA GRID A100X-20C (vGPU slice of A100 SXM4 40GB) |
+| VRAM | 12 GiB (12227 MiB) | 15 GiB (15360 MiB) | 20 GiB (20480 MiB) |
+| Driver / CUDA | 616.92 / 13.4 | 580.82.07 / 13.0 | 580.159.03 / 13.0 |
+| How I checked | `nvidia-smi`, `Get-CimInstance` | `nvidia-smi`, `lscpu`, `free -h` | `nvidia-smi`, `lscpu`, `free -h`, `lspci -nnk` |
 
 ---
 
@@ -187,6 +187,7 @@ One row per model per environment. The same five prompts in every row.
 | Qwen2.5-3B-Instruct | 3B | 4-bit NF4 | Colab | transformers | | | | | | | | | | |
 | qwen2.5:3b | 3B | Q4_K_M | Colab | Ollama | | | | | | | | | | |
 | mistral:7b | 7B | Q4_K_M | Colab | Ollama | | | | | | | | | | |
+| phi4:14b | 14B | Q4_K_M | Colab | Ollama | | | | | | | | | | |
 | qwen2.5:3b | 3B | Q4_K_M | Jetstream2 | Ollama | | | | | | | | | | |
 | mistral:7b | 7B | Q4_K_M | Jetstream2 | Ollama | | | | | | | | | | |
 | phi4:14b | 14B | Q4_K_M | Jetstream2 | Ollama | | | | | | | | | | |
