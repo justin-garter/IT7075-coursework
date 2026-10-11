@@ -125,7 +125,7 @@ CVE-2026-31337 is fabricated. Expected correct behaviour is `"known": false`.
 | `qwen2.5:3b` | Qwen | 3B | Q4_K_M | ~2 GB | Ollama library |
 | `mistral:7b` | Mistral | 7B | Q4_K_M | ~4.4 GB | Ollama library |
 | `phi4:14b` | Phi | 14B | Q4_K_M | ~9 GB | Ollama library |
-| (TBD) | | | 4-bit | | Hugging Face, via transformers |
+| `Qwen/Qwen2.5-3B-Instruct` | Qwen | 3B | 4-bit NF4 (bitsandbytes) | ~2.5 GB | Hugging Face, via transformers |
 
 ---
 
@@ -184,7 +184,7 @@ One row per model per environment. The same five prompts in every row.
 | mistral:7b | 7B | Q4_K_M | Local | Ollama | 2.26 | 2.23 | 1.43 | 0.98 | 1.16 | 0.47 | 125.7 | 5.0 | no | rule checks 3/4 |
 | phi4:14b | 14B | Q4_K_M | Local | Ollama | 4.29 | 7.76 | 2.02 | 1.51 | 2.25 | 2.84 | 65.4 | 9.7 | no | rule checks 0/4 |
 | qwen2.5:3b | 3B | Q4_K_M | Local | Open WebUI | 1.61 | 3.03 | 0.63 | 0.42 | 0.51 | 0.30 | 217.1 | 2.2 | no | rule checks 3/4 |
-| (HF model) | | 4-bit | Colab | transformers | | | | | | | | | | |
+| Qwen2.5-3B-Instruct | 3B | 4-bit NF4 | Colab | transformers | | | | | | | | | | |
 | qwen2.5:3b | 3B | Q4_K_M | Colab | Ollama | | | | | | | | | | |
 | mistral:7b | 7B | Q4_K_M | Colab | Ollama | | | | | | | | | | |
 | qwen2.5:3b | 3B | Q4_K_M | Jetstream2 | Ollama | | | | | | | | | | |
