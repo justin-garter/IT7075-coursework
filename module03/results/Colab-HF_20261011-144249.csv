@@ -1,0 +1,2 @@
+Model,Environment,Tool,Load (s),P1 (s),P2 (s),P3 (s),P4 (s),P5 (s),tok/s,VRAM (GB),CPU offload?,Rule checks,max_new_tokens,Notes
+Qwen/Qwen2.5-3B-Instruct,Colab,transformers,27.98,46.68,11.97,7.56,11.74,2.19,11.3,2.3,no,3/4,1024,download 0.2s; VRAM = torch peak allocated

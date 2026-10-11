@@ -184,10 +184,10 @@ One row per model per environment. The same five prompts in every row.
 | mistral:7b | 7B | Q4_K_M | Local | Ollama | 2.26 | 2.23 | 1.43 | 0.98 | 1.16 | 0.47 | 125.7 | 5.0 | no | rule checks 3/4 |
 | phi4:14b | 14B | Q4_K_M | Local | Ollama | 4.29 | 7.76 | 2.02 | 1.51 | 2.25 | 2.84 | 65.4 | 9.7 | no | rule checks 0/4 |
 | qwen2.5:3b | 3B | Q4_K_M | Local | Open WebUI | 1.61 | 3.03 | 0.63 | 0.42 | 0.51 | 0.30 | 217.1 | 2.2 | no | rule checks 3/4 |
-| Qwen2.5-3B-Instruct | 3B | 4-bit NF4 | Colab | transformers | | | | | | | | | | |
-| qwen2.5:3b | 3B | Q4_K_M | Colab | Ollama | | | | | | | | | | |
-| mistral:7b | 7B | Q4_K_M | Colab | Ollama | | | | | | | | | | |
-| phi4:14b | 14B | Q4_K_M | Colab | Ollama | | | | | | | | | | |
+| Qwen2.5-3B-Instruct | 3B | 4-bit NF4 | Colab | transformers | 27.98 | 46.68 | 11.97 | 7.56 | 11.74 | 2.19 | 11.3 | 2.3 | no | rule checks 3/4; VRAM is torch peak allocated |
+| qwen2.5:3b | 3B | Q4_K_M | Colab | Ollama | 10.42 | 10.57 | 2.31 | 1.11 | 1.37 | 0.39 | 81.5 | 2.2 | no | rule checks 2/4 |
+| mistral:7b | 7B | Q4_K_M | Colab | Ollama | 23.27 | 5.69 | 5.15 | 2.78 | 5.18 | 1.34 | 38.1 | 5.0 | no | rule checks 3/4 |
+| phi4:14b | 14B | Q4_K_M | Colab | Ollama | 33.69 | 53.79 | 11.34 | 7.33 | 13.27 | 11.28 | 13.7 | 9.7 | no | rule checks 0/4 |
 | qwen2.5:3b | 3B | Q4_K_M | Jetstream2 | Ollama | | | | | | | | | | |
 | mistral:7b | 7B | Q4_K_M | Jetstream2 | Ollama | | | | | | | | | | |
 | phi4:14b | 14B | Q4_K_M | Jetstream2 | Ollama | | | | | | | | | | |
