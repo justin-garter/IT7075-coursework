@@ -1,0 +1,4 @@
+Model,Environment,Load 1 (s),Load 2 (s),Load 3 (s),Median load (s)
+qwen2.5:3b,Colab,3.31,3.66,3.64,3.64
+mistral:7b,Colab,3.52,4.20,3.24,3.52
+phi4:14b,Colab,34.58,34.01,34.45,34.45
