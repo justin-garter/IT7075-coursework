@@ -142,7 +142,8 @@ CVE-2026-31337 is fabricated. Expected correct behaviour is `"known": false`.
 
 Tokens per second is `eval_count / (eval_duration / 1e9)`.
 
-**Load time** measured on the first request after `ollama stop <model>`.
+**Load time** is the median of three loads, each from an empty GPU, after one warm-up load that
+places the model file in the OS file cache (`mp2_measure.py --load-only`).
 
 **Memory** from `nvidia-smi` during generation and from `ollama ps`, which reports
 resident size and the CPU/GPU split.
@@ -188,7 +189,7 @@ One row per model per environment. The same five prompts in every row.
 | qwen2.5:3b | 3B | Q4_K_M | Colab | Ollama | 10.42 | 10.57 | 2.31 | 1.11 | 1.37 | 0.39 | 81.5 | 2.2 | no | rule checks 2/4 |
 | mistral:7b | 7B | Q4_K_M | Colab | Ollama | 23.27 | 5.69 | 5.15 | 2.78 | 5.18 | 1.34 | 38.1 | 5.0 | no | rule checks 3/4 |
 | phi4:14b | 14B | Q4_K_M | Colab | Ollama | 33.69 | 53.79 | 11.34 | 7.33 | 13.27 | 11.28 | 13.7 | 9.7 | no | rule checks 0/4 |
-| qwen2.5:3b | 3B | Q4_K_M | Jetstream2 | Ollama | 27.52 | 35.88 | 0.79 | 0.43 | 0.70 | 0.18 | 85.4 | 2.2 | no | rule checks 3/4 |
+| qwen2.5:3b | 3B | Q4_K_M | Jetstream2 | Ollama | 27.52 | 35.88 | 0.79 | 0.43 | 0.70 | 0.18 | 222.3 | 2.2 | no | rule checks 3/4; tok/s from P2–P5, P1 was the first request after an Ollama restart |
 | mistral:7b | 7B | Q4_K_M | Jetstream2 | Ollama | 16.38 | 10.90 | 1.10 | 0.70 | 1.08 | 0.38 | 156.1 | 5.0 | no | rule checks 3/4 |
 | phi4:14b | 14B | Q4_K_M | Jetstream2 | Ollama | 3.71 | 14.45 | 1.78 | 1.15 | 1.67 | 1.26 | 91.5 | 9.7 | no | rule checks 0/4 |
 
@@ -232,3 +233,4 @@ reliability comparison in the final analysis.
 | 2026-10-10 | Open WebUI run uses `qwen2.5:3b` with all model capabilities and built-in tools disabled. Input tokens verified equal to the API run (P1: 251). Data in `results/Local-OpenWebUI_20261010_responses.jsonl`. | With defaults, Open WebUI sent 2,050 input tokens for P1 (tool definitions added to the prompt) and displayed an empty reply. |
 | 2026-10-11 | Jetstream2 `ollama` service account added to the `vglusers` group. Official Jetstream2 data is `results/Jetstream2_20261011-162508`. | GPU device files are restricted to `vglusers`; without it, Ollama ran all models 100% on CPU. |
 | 2026-10-11 | Dropped the human rubric (6.2). Rule-based checks and section 7 expected content cover output quality. | Not required by the assignment; time. |
+| 2026-10-11 | Load time re-measured with a warm file cache (median of three) in all three environments. | First-request load times depended on whether the model file was already cached, which differed by environment. |

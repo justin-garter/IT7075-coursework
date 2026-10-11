@@ -11,6 +11,7 @@ Examples:
     python mp2_measure.py --env Jetstream2 --models qwen2.5:3b mistral:7b phi4:14b
     python mp2_measure.py --env Local --models mistral:7b --prompts P2 --temperature 0.1
     python mp2_measure.py --list-prompts
+    python mp2_measure.py --env Local --load-only
 """
 
 import argparse
@@ -207,6 +208,38 @@ def run_model(host, model, prompts, prompt_ids, options, env, log):
     return row
 
 
+def run_load_only(host, models, env, out_dir, repeats=3):
+    """Warm-cache load timing: load once to fill the OS file cache, then time
+    `repeats` loads, each from an empty GPU. Writes <env>-load_<stamp>.csv."""
+    rows = []
+    for model in models:
+        print(f"\n=== {model} (load only) ===")
+        req = {"model": model, "prompt": "hi", "stream": False, "keep_alive": "10m",
+               "options": {"num_ctx": NUM_CTX, "num_predict": 1}}
+        unload_all(host)
+        api(host, "/api/generate", req)          # warm-up: fills the file cache
+        loads = []
+        for i in range(repeats):
+            unload_all(host)
+            r = api(host, "/api/generate", req)
+            loads.append(r.get("load_duration", 0) / NS)
+            print(f"  load {i + 1}: {loads[-1]:.2f}s")
+        med = sorted(loads)[len(loads) // 2]
+        rows.append({"Model": model, "Environment": env,
+                     **{f"Load {i + 1} (s)": f"{v:.2f}" for i, v in enumerate(loads)},
+                     "Median load (s)": f"{med:.2f}"})
+        print(f"  median {med:.2f}s")
+    unload_all(host)
+    stamp = dt.datetime.now().strftime("%Y%m%d-%H%M%S")
+    path = Path(out_dir) / f"{env}-load_{stamp}.csv"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+        w.writeheader()
+        w.writerows(rows)
+    print(f"\nWrote {path}")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--env", help="Environment label: Local, Colab, or Jetstream2")
@@ -219,6 +252,7 @@ def main():
     ap.add_argument("--num-predict", type=int, help="Task 4 only")
     ap.add_argument("--out", default=str(HERE / "results"))
     ap.add_argument("--list-prompts", action="store_true", help="Print parsed prompts and exit")
+    ap.add_argument("--load-only", action="store_true", help="Warm-cache load timing only")
     args = ap.parse_args()
 
     prompts = load_prompts(args.plan)
@@ -235,6 +269,13 @@ def main():
     except OllamaError as e:
         sys.exit(f"ERROR: {e}\nIs Ollama running at {args.host}?")
     print(f"Ollama {version} at {args.host}")
+
+    if args.load_only:
+        missing = [m for m in args.models if m not in installed]
+        if missing:
+            sys.exit(f"ERROR: not installed: {missing}. Run: ollama pull <model>")
+        run_load_only(args.host, args.models, args.env, args.out)
+        return
 
     options = {"num_ctx": NUM_CTX}
     if args.temperature is not None:
