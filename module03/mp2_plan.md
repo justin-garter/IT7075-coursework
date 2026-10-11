@@ -188,9 +188,9 @@ One row per model per environment. The same five prompts in every row.
 | qwen2.5:3b | 3B | Q4_K_M | Colab | Ollama | 10.42 | 10.57 | 2.31 | 1.11 | 1.37 | 0.39 | 81.5 | 2.2 | no | rule checks 2/4 |
 | mistral:7b | 7B | Q4_K_M | Colab | Ollama | 23.27 | 5.69 | 5.15 | 2.78 | 5.18 | 1.34 | 38.1 | 5.0 | no | rule checks 3/4 |
 | phi4:14b | 14B | Q4_K_M | Colab | Ollama | 33.69 | 53.79 | 11.34 | 7.33 | 13.27 | 11.28 | 13.7 | 9.7 | no | rule checks 0/4 |
-| qwen2.5:3b | 3B | Q4_K_M | Jetstream2 | Ollama | | | | | | | | | | |
-| mistral:7b | 7B | Q4_K_M | Jetstream2 | Ollama | | | | | | | | | | |
-| phi4:14b | 14B | Q4_K_M | Jetstream2 | Ollama | | | | | | | | | | |
+| qwen2.5:3b | 3B | Q4_K_M | Jetstream2 | Ollama | 27.52 | 35.88 | 0.79 | 0.43 | 0.70 | 0.18 | 85.4 | 2.2 | no | rule checks 3/4 |
+| mistral:7b | 7B | Q4_K_M | Jetstream2 | Ollama | 16.38 | 10.90 | 1.10 | 0.70 | 1.08 | 0.38 | 156.1 | 5.0 | no | rule checks 3/4 |
+| phi4:14b | 14B | Q4_K_M | Jetstream2 | Ollama | 3.71 | 14.45 | 1.78 | 1.15 | 1.67 | 1.26 | 91.5 | 9.7 | no | rule checks 0/4 |
 
 ---
 
@@ -239,3 +239,4 @@ Scored 1 to 5 on two dimensions, by me, for every response including P1.
 |---|---|---|
 | 2026-10-05 | Runner unloads every resident model before each model's run. Official local data is `results/Local_20261005-231631`. | The first run (`Local_20261005-231359`) left earlier models loaded, which affected load times. |
 | 2026-10-10 | Open WebUI run uses `qwen2.5:3b` with all model capabilities and built-in tools disabled. Input tokens verified equal to the API run (P1: 251). Data in `results/Local-OpenWebUI_20261010_responses.jsonl`. | With defaults, Open WebUI sent 2,050 input tokens for P1 (tool definitions added to the prompt) and displayed an empty reply. |
+| 2026-10-11 | Jetstream2 `ollama` service account added to the `vglusers` group. Official Jetstream2 data is `results/Jetstream2_20261011-162508`. | GPU device files are restricted to `vglusers`; without it, Ollama ran all models 100% on CPU. |
