@@ -199,7 +199,7 @@ One row per model per environment. The same five prompts in every row.
 ### 6.1 Rule-based checks
 
 Automated, pass/fail. Applies to P2 through P5. P1 specifies no schema, so it has no
-rule-based score and is evaluated by rubric only.
+rule-based score.
 
 | Check | Definition |
 |---|---|
@@ -209,15 +209,6 @@ rule-based score and is evaluated by rubric only.
 
 Recorded per model per environment as a count out of four, which is the input to the
 reliability comparison in the final analysis.
-
-### 6.2 Human rubric
-
-Scored 1 to 5 on two dimensions, by me, for every response including P1.
-
-| Dimension | Question |
-|---|---|
-| Correct | Are the stated facts right, and is every claim traceable to the supplied evidence? |
-| Usable | Could an analyst act on this as written, without cleanup? |
 
 ---
 
@@ -240,3 +231,4 @@ Scored 1 to 5 on two dimensions, by me, for every response including P1.
 | 2026-10-05 | Runner unloads every resident model before each model's run. Official local data is `results/Local_20261005-231631`. | The first run (`Local_20261005-231359`) left earlier models loaded, which affected load times. |
 | 2026-10-10 | Open WebUI run uses `qwen2.5:3b` with all model capabilities and built-in tools disabled. Input tokens verified equal to the API run (P1: 251). Data in `results/Local-OpenWebUI_20261010_responses.jsonl`. | With defaults, Open WebUI sent 2,050 input tokens for P1 (tool definitions added to the prompt) and displayed an empty reply. |
 | 2026-10-11 | Jetstream2 `ollama` service account added to the `vglusers` group. Official Jetstream2 data is `results/Jetstream2_20261011-162508`. | GPU device files are restricted to `vglusers`; without it, Ollama ran all models 100% on CPU. |
+| 2026-10-11 | Dropped the human rubric (6.2). Rule-based checks and section 7 expected content cover output quality. | Not required by the assignment; time. |
