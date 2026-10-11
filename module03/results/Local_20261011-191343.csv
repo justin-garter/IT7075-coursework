@@ -1,0 +1,2 @@
+Model,Environment,Tool,Load (s),P1 (s),P2 (s),P3 (s),P4 (s),P5 (s),tok/s,VRAM (GB),nvidia-smi used (MiB),CPU offload?,Context,Rule checks,Temperature,num_predict,Notes
+mistral:7b,Local,Ollama,1.58,2.00,,,,,123.6,5.0,6224,no,4096,,1.0,default,
