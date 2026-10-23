@@ -10,3 +10,9 @@ numpy>=1.26
 # CPU-only, and an RTX 5070 (Blackwell, sm_120) needs a CUDA 12.8+ build. Install with:
 #   pip install torch --index-url https://download.pytorch.org/whl/cu128
 # Verify with module02/env_check.py — torch.cuda.is_available() must report True.
+
+# IT7075 Module 4 — Mini Project 3 (RAG)
+sentence-transformers>=6.1
+chromadb>=1.5
+pandas>=3.0
+matplotlib>=3.11
