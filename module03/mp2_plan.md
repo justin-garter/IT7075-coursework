@@ -189,7 +189,7 @@ One row per model per environment. The same five prompts in every row.
 | qwen2.5:3b | 3B | Q4_K_M | Colab | Ollama | 3.64 | 10.57 | 2.31 | 1.11 | 1.37 | 0.39 | 81.5 | 2.2 | no | rule checks 2/4 |
 | mistral:7b | 7B | Q4_K_M | Colab | Ollama | 3.52 | 5.69 | 5.15 | 2.78 | 5.18 | 1.34 | 38.1 | 5.0 | no | rule checks 3/4 |
 | phi4:14b | 14B | Q4_K_M | Colab | Ollama | 34.45 | 53.79 | 11.34 | 7.33 | 13.27 | 11.28 | 13.7 | 9.7 | no | rule checks 0/4 |
-| qwen2.5:3b | 3B | Q4_K_M | Jetstream2 | Ollama | 2.28 | 35.88 | 0.79 | 0.43 | 0.70 | 0.18 | 222.3 | 2.2 | no | rule checks 3/4; tok/s from P2–P5, P1 was the first request after an Ollama restart |
+| qwen2.5:3b | 3B | Q4_K_M | Jetstream2 | Ollama | 2.28 | 35.88 | 0.79 | 0.43 | 0.70 | 0.18 | 222.3 | 2.2 | no | rule checks 3/4; tok/s from P2 to P5, P1 was the first request after an Ollama restart |
 | mistral:7b | 7B | Q4_K_M | Jetstream2 | Ollama | 2.24 | 10.90 | 1.10 | 0.70 | 1.08 | 0.38 | 156.1 | 5.0 | no | rule checks 3/4 |
 | phi4:14b | 14B | Q4_K_M | Jetstream2 | Ollama | 3.44 | 14.45 | 1.78 | 1.15 | 1.67 | 1.26 | 91.5 | 9.7 | no | rule checks 0/4 |
 
