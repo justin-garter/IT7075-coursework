@@ -1,0 +1,80 @@
+{
+  "about": "Gold set for my_kb/: DFARS, CMMC, SPRS and ITAR excerpts. 6 answerable, 2 unanswerable.",
+  "kb_files": [
+    "dfars_7012.md",
+    "cmmc_levels.md",
+    "cmmc_poam_affirmation.md",
+    "sprs_assessments.md",
+    "itar_basics.md"
+  ],
+  "questions": [
+    {
+      "qid": "Q1",
+      "question": "How quickly does a defense contractor have to report a cyber incident to the DoD?",
+      "source": "dfars_7012.md",
+      "evidence": [
+        "within 72 hours of discovery of any cyber incident"
+      ],
+      "answerable": true
+    },
+    {
+      "qid": "Q2",
+      "question": "How long must a contractor keep images of affected systems after reporting a cyber incident?",
+      "source": "dfars_7012.md",
+      "evidence": [
+        "for at least 90 days from the submission of the cyber incident report"
+      ],
+      "answerable": true
+    },
+    {
+      "qid": "Q3",
+      "question": "Who performs a CMMC Level 3 certification assessment?",
+      "source": "cmmc_levels.md",
+      "evidence": [
+        "which will be performed by DCMA DIBCAC"
+      ],
+      "answerable": true
+    },
+    {
+      "qid": "Q4",
+      "question": "What minimum score does a contractor need to get Conditional Level 2 status with a POA&M?",
+      "source": "cmmc_poam_affirmation.md",
+      "evidence": [
+        "is greater than or equal to 0.8"
+      ],
+      "answerable": true
+    },
+    {
+      "qid": "Q5",
+      "question": "How many business days does a contractor get to provide additional evidence for the findings of a Medium or High assessment?",
+      "source": "sprs_assessments.md",
+      "evidence": [
+        "the contractor has 14 business days to provide additional information"
+      ],
+      "answerable": true
+    },
+    {
+      "qid": "Q6",
+      "question": "Does showing technical data to a foreign national inside the US count as an export under ITAR?",
+      "source": "itar_basics.md",
+      "evidence": [
+        "to a foreign person in the United States (a deemed export)"
+      ],
+      "answerable": true
+    },
+    {
+      "qid": "Q7",
+      "question": "What is the top track speed of the 2024 Kawasaki Z500 SE?",
+      "source": null,
+      "evidence": [],
+      "answerable": false
+    },
+    {
+      "qid": "Q8",
+      "question": "How many security requirements are in NIST SP 800-171 Revision 3?",
+      "source": null,
+      "evidence": [],
+      "answerable": false
+    }
+  ]
+}

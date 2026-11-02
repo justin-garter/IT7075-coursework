@@ -1,0 +1,23 @@
+experiment,chunk_size,overlap,k,score_threshold,equiv_max_distance,n_chunks,max_chunk,n_oversized,found,found_of,refused,refused_of,missed,like_for_like
+chunk_size,200,100,4,0.25,0.75,42,761,23,5,6,1,2,Q4 Q8,False
+chunk_size,300,100,4,0.25,0.75,36,761,12,6,6,1,2,Q8,False
+chunk_size,400,100,4,0.25,0.75,30,761,5,6,6,1,2,Q8,False
+chunk_size,600,100,4,0.25,0.75,22,761,1,6,6,1,2,Q8,True
+chunk_size,800,100,4,0.25,0.75,17,779,0,6,6,1,2,Q8,False
+chunk_size,1000,100,4,0.25,0.75,14,969,0,6,6,1,2,Q8,False
+chunk_size,1500,100,4,0.25,0.75,10,1474,0,6,6,1,2,Q8,False
+k,600,100,1,0.25,0.75,22,761,1,5,6,1,2,Q6 Q8,False
+k,600,100,2,0.25,0.75,22,761,1,6,6,1,2,Q8,False
+k,600,100,3,0.25,0.75,22,761,1,6,6,1,2,Q8,False
+k,600,100,4,0.25,0.75,22,761,1,6,6,1,2,Q8,True
+k,600,100,6,0.25,0.75,22,761,1,6,6,1,2,Q8,False
+k,600,100,8,0.25,0.75,22,761,1,6,6,1,2,Q8,False
+score_threshold,600,100,4,0.6,0.4,22,761,1,4,6,1,2,Q5 Q6 Q8,False
+score_threshold,600,100,4,0.5,0.5,22,761,1,5,6,1,2,Q6 Q8,False
+score_threshold,600,100,4,0.4,0.6,22,761,1,6,6,1,2,Q8,False
+score_threshold,600,100,4,0.35,0.65,22,761,1,6,6,1,2,Q8,False
+score_threshold,600,100,4,0.3,0.7,22,761,1,6,6,1,2,Q8,False
+score_threshold,600,100,4,0.25,0.75,22,761,1,6,6,1,2,Q8,True
+score_threshold,600,100,4,0.2,0.8,22,761,1,6,6,1,2,Q8,False
+score_threshold,600,100,4,0.1,0.9,22,761,1,6,6,0,2,Q7 Q8,False
+score_threshold,600,100,4,0.0,1.0,22,761,1,6,6,0,2,Q7 Q8,False
